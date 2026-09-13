@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #0a0a0c;
+  --color-charcoal: #17171a;
+  --color-graphite: #2b2b30;
+  --color-silver: #b7b7bd;
+  --color-bone: #edeae3;
+  --color-lavender-muted: #8b84a0;
+  --color-lavender-atmos: #6b6478;
+
+  --color-background: var(--color-obsidian);
+  --color-foreground: var(--color-bone);
+  --color-border: var(--color-graphite);
+
+  --breakpoint-tablet: 40.0625rem;
+  --breakpoint-desktop: 64.0625rem;
+  --breakpoint-wide: 90.0625rem;
+
+  --text-meta: 0.8125rem;
+  --text-meta--line-height: 1.4;
+  --text-meta--letter-spacing: 0.14em;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.3;
+
+  --text-h2: 1.75rem;
+  --text-h2--line-height: 1.25;
+
+  --text-h1: 2.5rem;
+  --text-h1--line-height: 1.15;
+
+  --text-display: clamp(4rem, 8vw, 7.5rem);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.03em;
+
+  --tracking-display: -0.03em;
+  --tracking-meta: 0.14em;
+
+  --ease-editorial: cubic-bezier(0, 0, 0.2, 1);
+  --duration-reveal: 600ms;
+  --duration-page: 400ms;
+  --reveal-distance: 16px;
+
+  --shadow-atmos: 0 0 160px
+    color-mix(in srgb, var(--color-lavender-atmos) 12%, transparent);
+
+  --default-border-width: 1px;
+  --default-border-color: var(--color-graphite);
+}
+
+@theme inline {
+  --font-display: var(--font-fraunces), "Iowan Old Style", Palatino, serif;
+  --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, Consolas, monospace;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-obsidian);
+    color: var(--color-bone);
+    scroll-padding-top: 8rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100%;
+    background-color: var(--color-obsidian);
+    color: var(--color-bone);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+  }
+
+  ::selection {
+    background-color: color-mix(
+      in srgb,
+      var(--color-lavender-muted) 22%,
+      transparent
+    );
+    color: var(--color-bone);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--color-lavender-muted);
+    outline-offset: 4px;
+  }
+}
+
+@utility editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 1rem;
+
+  @media (min-width: 40.0625rem) {
+    column-gap: 2rem;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-optical-sizing: auto;
+    font-variation-settings: "SOFT" 0, "WONK" 1;
+  }
+}
+
+.hero-atmosphere {
+  --glow-x: 28%;
+  --glow-y: 42%;
+}
+
+.hero-mesh {
+  background:
+    radial-gradient(
+      ellipse 55% 45% at 18% 38%,
+      var(--color-charcoal),
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 40% 50% at 88% 78%,
+      color-mix(in srgb, var(--color-lavender-atmos) 12%, transparent),
+      transparent 68%
+    );
+}
+
+.hero-glow {
+  width: 36rem;
+  height: 36rem;
+  left: var(--glow-x);
+  top: var(--glow-y);
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--color-lavender-atmos) 14%, transparent),
+    transparent 70%
+  );
+  filter: blur(64px);
+}
+
+.hero-grain {
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  animation: grain-drift 28s linear infinite;
+}
+
+.hero-copy {
+  animation: hero-reveal 600ms var(--ease-editorial) both;
+}
+
+.hero-copy-delay-1 {
+  animation-delay: 90ms;
+}
+
+.hero-copy-delay-2 {
+  animation-delay: 160ms;
+}
+
+.hero-copy-delay-3 {
+  animation-delay: 220ms;
+}
+
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes grain-drift {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(-3%, -4%);
+  }
+}
+
+.project-mesh {
+  filter: grayscale(0.4) contrast(1.12);
+}
+
+.project-mesh-1 {
+  background:
+    radial-gradient(ellipse 70% 50% at 28% 30%, #2b2b30, transparent 58%),
+    radial-gradient(
+      ellipse 60% 55% at 78% 78%,
+      color-mix(in srgb, var(--color-lavender-atmos) 12%, #17171a),
+      #121214 70%
+    ),
+    linear-gradient(165deg, #1a1a1e, #101012);
+}
+
+.project-mesh-2 {
+  background:
+    radial-gradient(ellipse 50% 70% at 70% 20%, #2b2b30, transparent 60%),
+    radial-gradient(
+      ellipse 80% 40% at 20% 85%,
+      color-mix(in srgb, var(--color-lavender-atmos) 10%, #17171a),
+      #131316 72%
+    ),
+    linear-gradient(200deg, #18181c, #101012);
+}
+
+.project-mesh-3 {
+  background:
+    radial-gradient(circle at 50% 45%, #242428, transparent 52%),
+    radial-gradient(
+      ellipse 90% 50% at 50% 100%,
+      color-mix(in srgb, var(--color-lavender-atmos) 11%, #17171a),
+      #121214 68%
+    ),
+    linear-gradient(180deg, #1b1b1f, #101012);
+}
+
+.project-mesh-4 {
+  background:
+    radial-gradient(ellipse 40% 80% at 18% 50%, #2b2b30, transparent 55%),
+    radial-gradient(
+      ellipse 55% 60% at 88% 30%,
+      color-mix(in srgb, var(--color-lavender-atmos) 13%, #17171a),
+      #141416 70%
+    ),
+    linear-gradient(145deg, #19191d, #101012);
+}
+
+.about-figure-mesh {
+  background:
+    radial-gradient(
+      ellipse 70% 45% at 32% 22%,
+      #2b2b30,
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 80% 55% at 78% 82%,
+      color-mix(in srgb, var(--color-lavender-atmos) 12%, #17171a),
+      #141416 72%
+    ),
+    linear-gradient(165deg, #1a1a1e, #101012);
+  filter: grayscale(0.35) contrast(1.12);
+}
+
+.resume-page,
+.resume-page canvas {
+  color-scheme: light;
+}
+
+.resume-page canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  background: var(--color-bone);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.reveal-in {
+  animation: hero-reveal 600ms var(--ease-editorial) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy,
+  .hero-copy-delay-1,
+  .hero-copy-delay-2,
+  .hero-copy-delay-3,
+  .hero-grain {
+    animation: none;
+  }
+
+  .reveal,
+  .reveal-in {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
