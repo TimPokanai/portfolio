@@ -1,6 +1,6 @@
 export const site = {
   name: "Tim Pokanai",
-  initials: "TP",
+  initials: "TGP",
   location: "Hamilton",
   email: "timpokanai@gmail.com",
   socials: [
@@ -8,7 +8,7 @@ export const site = {
     { label: "LinkedIn", href: "https://www.linkedin.com/in/timpokanai/" },
   ],
   hero: {
-    kicker: "Cover / 2026 / Hamilton",
+    kicker: "Home / 2026 / Hamilton",
     givenName: "Tim",
     surname: "Pokanai",
     lede: "Software and data systems.",

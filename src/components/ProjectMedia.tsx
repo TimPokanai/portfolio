@@ -14,6 +14,10 @@ export function ProjectMedia({
   sizes,
   priority = false,
 }: ProjectMediaProps) {
+  const grayscale = project.imageGrayscale !== false;
+  const fitClassName =
+    project.imageFit === "contain" ? "object-contain" : "object-cover";
+
   return (
     <figure
       className={`relative overflow-hidden bg-charcoal ${className}`}
@@ -25,7 +29,9 @@ export function ProjectMedia({
           fill
           sizes={sizes}
           priority={priority}
-          className="object-cover grayscale contrast-125 transition-opacity duration-500 ease-out group-hover:opacity-90"
+          className={`${fitClassName} ${
+            grayscale ? "grayscale contrast-125" : ""
+          } transition-opacity duration-500 ease-out group-hover:opacity-90`.trim()}
         />
       ) : (
         <>

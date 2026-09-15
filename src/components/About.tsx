@@ -1,32 +1,22 @@
+import Image from "next/image";
 import { about } from "@/content/about";
 import { Reveal } from "@/components/Reveal";
 
 function AboutFigure() {
   return (
     <figure className="relative aspect-[3/4] overflow-hidden border border-graphite bg-charcoal">
-      <div className="about-figure-mesh absolute inset-0" />
-      <div className="hero-grain absolute inset-0 opacity-[0.07]" />
-      <svg
-        aria-hidden
-        viewBox="0 0 200 320"
-        className="absolute inset-0 h-full w-full text-silver/40"
-      >
-        <path
-          d="M36 304 V148 C36 64 68 28 100 28 C132 28 164 64 164 148 V304"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="0.6"
-        />
-        <path
-          d="M100 28 V304"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="0.4"
-          opacity="0.35"
-        />
-      </svg>
+      <Image
+        src={about.figure.src}
+        alt={about.figure.alt}
+        fill
+        priority
+        sizes="(min-width: 1025px) 33vw, 100vw"
+        className="object-cover object-top grayscale contrast-125"
+      />
+      <div className="hero-grain pointer-events-none absolute inset-0 opacity-[0.07]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-obsidian/75 to-transparent" />
       <figcaption className="absolute bottom-6 left-6 font-mono text-meta uppercase tracking-meta text-silver">
-        {about.figureCaption}
+        {about.figure.caption}
       </figcaption>
     </figure>
   );

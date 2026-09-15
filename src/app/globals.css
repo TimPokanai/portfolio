@@ -236,22 +236,6 @@
     linear-gradient(145deg, #19191d, #101012);
 }
 
-.about-figure-mesh {
-  background:
-    radial-gradient(
-      ellipse 70% 45% at 32% 22%,
-      #2b2b30,
-      transparent 58%
-    ),
-    radial-gradient(
-      ellipse 80% 55% at 78% 82%,
-      color-mix(in srgb, var(--color-lavender-atmos) 12%, #17171a),
-      #141416 72%
-    ),
-    linear-gradient(165deg, #1a1a1e, #101012);
-  filter: grayscale(0.35) contrast(1.12);
-}
-
 .resume-page,
 .resume-page canvas {
   color-scheme: light;

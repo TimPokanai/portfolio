@@ -3,8 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { contact } from "@/content/contact";
+import { withBasePath } from "@/lib/paths";
 
-pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
+pdfjs.GlobalWorkerOptions.workerSrc = withBasePath("/pdf.worker.min.mjs");
 
 const controlClassName =
   "font-mono text-meta uppercase tracking-meta text-silver transition-colors duration-500 ease-out hover:text-lavender-muted disabled:text-graphite";
@@ -40,7 +41,7 @@ export function ResumeViewer() {
           {contact.emailLabel}
         </a>
         <a
-          href={contact.resume.href}
+          href={withBasePath(contact.resume.href)}
           download={contact.resume.downloadName}
           className={controlClassName}
         >
@@ -80,7 +81,7 @@ export function ResumeViewer() {
           <p className="px-6 py-16 font-mono text-meta uppercase tracking-meta text-silver">
             {contact.resume.failed}{" "}
             <a
-              href={contact.resume.href}
+              href={withBasePath(contact.resume.href)}
               download={contact.resume.downloadName}
               className="text-lavender-muted"
             >
@@ -89,7 +90,7 @@ export function ResumeViewer() {
           </p>
         ) : (
           <Document
-            file={contact.resume.href}
+            file={withBasePath(contact.resume.href)}
             loading={
               <p className="px-6 py-16 font-mono text-meta uppercase tracking-meta text-silver">
                 {contact.resume.loading}

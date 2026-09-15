@@ -2,16 +2,20 @@
 
 export const about = {
   kicker: "About / 01 / Note",
-  statement: "Replace this line with a short thesis about how you work.",
+  statement: "Passionate builder, thorough problem solver, detail-oriented.",
   body: [
-    "This paragraph is placeholder biography. Swap it for a few sentences on where you come from, what you study or build, and what holds your attention. Keep it prose — this page is meant to read like a column, not a résumé.",
-    "A second paragraph for rhythm. Mention a place, a discipline, or a habit of mind. The adjacent panel is an abstract stand-in for a portrait; you can leave it, or later drop in a grayscale study of stone, glass, or sculpture.",
+    "My first time programing was in my first year of Engineering at McMaster University, back when I still thought I would go into Chemical Engineering. What began with writing a simple program with two for loops in Python led to my current love of software engineering.",
+    "Today I'm working in Enterprise Architecture at Canada's leading asset servicing company in Toronto, after spending 1.5+ years working at industry leading companies in the financial services industry.",
   ],
-  figureCaption: "Fig. 01 / Plaster study",
-  approachLabel: "Approach",
+  figure: {
+    src: "/about/portrait.jpg",
+    alt: "Tim Pokanai",
+    caption: "Fig. 01 / Portrait",
+  },
+  approachLabel: "Mindset",
   approach: [
-    "Placeholder philosophy. Describe the constraints you care about: clarity, systems that last, the grain of a problem before the spectacle of a solution.",
-    "Another short paragraph on how you prefer to work. Slow looking, few gestures, tools kept in good order.",
+    "Combining my thorough-overthinker work philosophy and my need for clarity and robustness in my collaborating environment, I deliver sound and scalable systems all across the stack.",
+    "I thrive in environments when the team is facing complex and unexplored territory, where having clear and robust communications either makes or breaks the project.",
   ],
-  pullQuote: "A sentence you actually believe can live here later.",
+  pullQuote: "Plans are nothing; planning is everything.",
 } as const;

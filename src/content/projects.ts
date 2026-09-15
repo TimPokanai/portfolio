@@ -16,33 +16,42 @@ export type Project = {
   links: ProjectLink[];
   body: string[];
   pullQuote: string;
+  /** Path under `/public`. Drop the file there, e.g. `/projects/study-one.png`. */
   image: string | null;
   imageAlt: string;
+  /** Photos stay grayscale. Screenshots should set this to false. */
+  imageGrayscale?: boolean;
+  imageFit?: "cover" | "contain";
   tone: 1 | 2 | 3 | 4;
 };
 
 export const projectsIndex = {
   kicker: "Projects / 02 / Index",
-  statement: "Replace this line with a short note on the work you choose to show.",
+  statement: "I try to make things that are useful and beautiful.",
 } as const;
 
 export const projects: Project[] = [
   {
     slug: "study-one",
     code: "PROJECT_01",
-    title: "Placeholder project one",
-    year: "2025",
-    role: "Role — replace this",
-    timeline: "Season 2025",
+    title: "Portfolio Website",
+    year: "2026",
+    role: "Developer",
+    timeline: "Summer 2026",
     stack: ["TypeScript", "Next.js"],
-    links: [],
+    links: [
+      { label: "View Website", href: "https://timpokanai.com" },
+      { label: "View Code", href: "https://github.com/TimPokanai/portfolio" },
+    ],
     body: [
       "Editorial body copy lives here. Describe the problem, the constraint, and what you actually built — in prose, not a feature list.",
       "A second paragraph for texture. What changed because the work exists? What did you refuse to do?",
     ],
-    pullQuote: "A sentence from the work, or about it, can sit here later.",
-    image: null,
-    imageAlt: "Placeholder still for project one",
+    pullQuote: "Inspired by E-era Ecco2k.",
+    image: "/projects/study-one.png",
+    imageAlt: "Screenshot of project one",
+    imageGrayscale: false,
+    imageFit: "contain",
     tone: 1,
   },
   {
