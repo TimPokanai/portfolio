@@ -11,39 +11,51 @@ export type ExperienceRole = {
 
 export const experienceIndex = {
   kicker: "Experience / 03 / Record",
-  statement: "Replace this line with a short note on the work you have done.",
+  statement: "Experience from industry leaders in financial services.",
 } as const;
 
 export const experience: ExperienceRole[] = [
   {
-    id: "role-one",
-    dates: "Jun 2025 — Present",
-    role: "Placeholder role one",
-    company: "Studio or company name",
-    location: "City — Type of engagement",
+    id: "solution-designer",
+    dates: "May 2026 — Present",
+    role: "Solution Designer - Enterprise Architecture, IT",
+    company: "CIBC Mellon",
+    location: "Toronto - Hybrid",
     summary: [
-      "A short paragraph on what you were responsible for and the kind of problems you held. Write it as prose, not a list of duties.",
-      "A second sentence or paragraph if needed. Delete it if one is enough.",
+      "Helping shape the current and future state of the technology landscape at CIBC Mellon by designing the foundations of Enterprise Aarchitecture technology security, governance, and compliance.",
+      "Collaborating across IT teams to design and implement solutions that align with business objectives and technology strategies. Building the occasional data analysis dashboard in PowerBI and automated flow using Power Automate.",
     ],
   },
   {
-    id: "role-two",
-    dates: "Sep 2024 — May 2025",
-    role: "Placeholder role two",
-    company: "Studio or company name",
-    location: "City — Type of engagement",
+    id: "software-developer",
+    dates: "Jan 2025 — Aug 2025",
+    role: "Software Developer - Shared Services, IT",
+    company: "Intact Financial Corporation",
+    location: "Toroto - Hybrid",
     summary: [
-      "Describe the context: the team, the material, the constraint. Keep it specific when you replace this.",
+      "I built a generic and configurable API that performed ETLs for mainframe data validation and processing using Java Spring Boot and MongoDB. This saved the senior devs on our team 10+ hours/week to focus on more important things.", 
+      "I also built, migrated, and maintained backend systems, resolving 150+ critical/high CVE's and bugs in systems shared across Intact's IT.",
     ],
   },
   {
-    id: "role-three",
-    dates: "Jan 2024 — Aug 2024",
-    role: "Placeholder role three",
-    company: "Studio or company name",
-    location: "City — Type of engagement",
+    id: "software-engineer-intern",
+    dates: "May 2024 — Dec 2024",
+    role: "Software Engineer Intern - API Team, IT",
+    company: "LTM Canada",
+    location: "Mississauga - Hybrid",
     summary: [
-      "Earlier work can live here. Delete any entry you do not need, or add more objects to this array.",
+      "Built and maintained an API to perform data masking services for clients using Java Spring Boot, AWS Lambda and AWS Step Functions. Further developed, maintained, and tested other APIs.",
+      "Enhanced the performance and security of multiple Java Spring Boot APIs by migrating from SQL authentication to JWT authentication.",
+    ],
+  },
+  {
+    id: "full-stack-developer",
+    dates: "June 2023 - May 2024",
+    role: "Full-Stack Developer",
+    company: "314Labs",
+    location: "Toronto - Hybrid",
+    summary: [
+      "Worked in a highly energetic and small startup team, responsible for the development and ownership of HypeFundr's Campaign Creation component. ",
     ],
   },
 ];

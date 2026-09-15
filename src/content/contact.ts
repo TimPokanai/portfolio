@@ -2,7 +2,7 @@ import { site } from "./site";
 
 export const contact = {
   kicker: "Contact / 04 / Correspondence",
-  statement: "A note, a question, a brief.",
+  statement: "Start a conversation with me.",
   lede: "Prefer email. The record below can be read here or taken with you.",
   emailLabel: "Email me",
   downloadLabel: "Download résumé",
