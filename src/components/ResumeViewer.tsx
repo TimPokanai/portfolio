@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { contact } from "@/content/contact";
-import { withBasePath } from "@/lib/paths";
+import { resumeFileUrl, withBasePath } from "@/lib/paths";
 
 pdfjs.GlobalWorkerOptions.workerSrc = withBasePath("/pdf.worker.min.mjs");
 
@@ -41,7 +41,7 @@ export function ResumeViewer() {
           {contact.emailLabel}
         </a>
         <a
-          href={withBasePath(contact.resume.href)}
+          href={resumeFileUrl()}
           download={contact.resume.downloadName}
           className={controlClassName}
         >
@@ -81,7 +81,7 @@ export function ResumeViewer() {
           <p className="px-6 py-16 font-mono text-meta uppercase tracking-meta text-silver">
             {contact.resume.failed}{" "}
             <a
-              href={withBasePath(contact.resume.href)}
+              href={resumeFileUrl()}
               download={contact.resume.downloadName}
               className="text-lavender-muted"
             >
@@ -90,7 +90,7 @@ export function ResumeViewer() {
           </p>
         ) : (
           <Document
-            file={withBasePath(contact.resume.href)}
+            file={resumeFileUrl()}
             loading={
               <p className="px-6 py-16 font-mono text-meta uppercase tracking-meta text-silver">
                 {contact.resume.loading}

@@ -9,3 +9,10 @@ export function withBasePath(path: string) {
   return `${basePath}${path}`;
 }
 
+export function resumeFileUrl() {
+  const url = withBasePath("/resume/tim-pokanai-resume.pdf");
+  const version = process.env.NEXT_PUBLIC_RESUME_V;
+
+  return version ? `${url}?v=${version}` : url;
+}
+

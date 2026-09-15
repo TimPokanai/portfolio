@@ -1,8 +1,17 @@
 import type { NextConfig } from "next";
+import crypto from "crypto";
+import fs from "fs";
 import path from "path";
 
 const githubPages = process.env.GITHUB_PAGES === "true";
 const basePath = githubPages ? "/portfolio" : "";
+const resumeVersion = crypto
+  .createHash("sha256")
+  .update(
+    fs.readFileSync(path.join(__dirname, "public/resume/tim-pokanai-resume.pdf")),
+  )
+  .digest("hex")
+  .slice(0, 8);
 
 const nextConfig: NextConfig = {
   ...(githubPages
@@ -15,6 +24,7 @@ const nextConfig: NextConfig = {
     : {}),
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
+    NEXT_PUBLIC_RESUME_V: resumeVersion,
   },
   turbopack: {
     root: path.join(__dirname),
