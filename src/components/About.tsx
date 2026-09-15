@@ -1,17 +1,14 @@
-import Image from "next/image";
 import { about } from "@/content/about";
 import { Reveal } from "@/components/Reveal";
+import { withBasePath } from "@/lib/paths";
 
 function AboutFigure() {
   return (
     <figure className="relative aspect-[3/4] overflow-hidden border border-graphite bg-charcoal">
-      <Image
-        src={about.figure.src}
+      <img
+        src={withBasePath(about.figure.src)}
         alt={about.figure.alt}
-        fill
-        priority
-        sizes="(min-width: 1025px) 33vw, 100vw"
-        className="object-cover object-top grayscale contrast-125"
+        className="absolute inset-0 h-full w-full object-cover object-top grayscale contrast-125"
       />
       <div className="hero-grain pointer-events-none absolute inset-0 opacity-[0.07]" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-obsidian/75 to-transparent" />

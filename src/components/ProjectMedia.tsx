@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { Project } from "@/content/projects";
+import { withBasePath } from "@/lib/paths";
 
 type ProjectMediaProps = {
   project: Project;
@@ -11,8 +11,6 @@ type ProjectMediaProps = {
 export function ProjectMedia({
   project,
   className = "",
-  sizes,
-  priority = false,
 }: ProjectMediaProps) {
   const grayscale = project.imageGrayscale !== false;
   const fitClassName =
@@ -23,13 +21,10 @@ export function ProjectMedia({
       className={`relative overflow-hidden bg-charcoal ${className}`}
     >
       {project.image ? (
-        <Image
-          src={project.image}
+        <img
+          src={withBasePath(project.image)}
           alt={project.imageAlt}
-          fill
-          sizes={sizes}
-          priority={priority}
-          className={`${fitClassName} ${
+          className={`absolute inset-0 h-full w-full ${fitClassName} ${
             grayscale ? "grayscale contrast-125" : ""
           } transition-opacity duration-500 ease-out group-hover:opacity-90`.trim()}
         />
