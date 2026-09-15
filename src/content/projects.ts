@@ -1,5 +1,3 @@
-/** Replace these placeholders with real projects. Set `image` to a file in `/public`. */
-
 export type ProjectLink = {
   label: string;
   href: string;
@@ -32,79 +30,28 @@ export const projectsIndex = {
 
 export const projects: Project[] = [
   {
-    slug: "study-one",
-    code: "PROJECT_01",
+    slug: "portfolio",
+    code: "SITE_01",
     title: "Portfolio Website",
     year: "2026",
-    role: "Developer",
+    role: "Designer / Developer",
     timeline: "Summer 2026",
-    stack: ["TypeScript", "Next.js"],
+    stack: ["TypeScript", "Next.js", "Tailwind CSS"],
     links: [
       { label: "View Website", href: "https://timpokanai.com" },
       { label: "View Code", href: "https://github.com/TimPokanai/portfolio" },
     ],
     body: [
-      "Editorial body copy lives here. Describe the problem, the constraint, and what you actually built — in prose, not a feature list.",
-      "A second paragraph for texture. What changed because the work exists? What did you refuse to do?",
+      "I wanted a site that could hold still. Most developer portfolios shout: neon, centered stacks, a hamburger, a résumé as a download and nothing else. This one is built as an editorial object — nocturnal, architectural, with Fraunces for the things I am willing to stand on and Inter for everything you actually have to read. The constraint was the brief: lavender only as a whisper, motion only as a fade and sixteen pixels of lift, no filled buttons, no bounce.",
+      "The work was sequential on purpose. Tokens and type first, then nav and footer, then home, about, the project card and its detail, the experience timeline, and finally contact with an in-page résumé. The record on Contact is drawn with pdf.js rather than the browser’s plugin; the form is underlined fields and a hairline send, with a mail draft as the fallback until a form backend earns its keep. Photographs are desaturated. The one exception is this screenshot, which is a still of the interface and has to stay in color or it stops being evidence.",
+      "Shipping was part of the design. The app is a Next.js static export on GitHub Pages, which means the live object lives under /portfolio and every public file has to know that. Making the repository public, wiring the Action, and watching the first deploy go up with blank figures taught the same lesson as the palette: the unglamorous path is the one that actually holds. The site is the proof of the process, not a brochure for it.",
     ],
     pullQuote: "Inspired by E-era Ecco2k.",
     image: "/projects/study-one.png",
-    imageAlt: "Screenshot of project one",
+    imageAlt: "Color screenshot of the portfolio home page",
     imageGrayscale: false,
     imageFit: "contain",
     tone: 1,
-  },
-  {
-    slug: "study-two",
-    code: "PROJECT_02",
-    title: "Placeholder project two",
-    year: "2025",
-    role: "Role — replace this",
-    timeline: "Season 2025",
-    stack: ["Python"],
-    links: [],
-    body: [
-      "Another write-up. Keep the tone of the site: cold, specific, unhurried.",
-      "Swap these sentences when you have the real story. The image panel above will take a grayscale photograph when you set the `image` field.",
-    ],
-    pullQuote: "A second pull-quote placeholder.",
-    image: null,
-    imageAlt: "Placeholder still for project two",
-    tone: 2,
-  },
-  {
-    slug: "study-three",
-    code: "PROJECT_03",
-    title: "Placeholder project three",
-    year: "2024",
-    role: "Role — replace this",
-    timeline: "Season 2024",
-    stack: ["JavaScript"],
-    links: [],
-    body: [
-      "Use this page as the template. Title, metadata, body, and quote all come from `src/content/projects.ts`.",
-    ],
-    pullQuote: "Restraint is a material.",
-    image: null,
-    imageAlt: "Placeholder still for project three",
-    tone: 3,
-  },
-  {
-    slug: "study-four",
-    code: "PROJECT_04",
-    title: "Placeholder project four",
-    year: "2024",
-    role: "Role — replace this",
-    timeline: "Season 2024",
-    stack: ["TypeScript"],
-    links: [],
-    body: [
-      "A fourth study so the index has a rhythm of offset cards. Delete any entry you do not need.",
-    ],
-    pullQuote: "Replace this line with something you would stand by.",
-    image: null,
-    imageAlt: "Placeholder still for project four",
-    tone: 4,
   },
 ];
 
